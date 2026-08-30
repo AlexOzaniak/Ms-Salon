@@ -300,9 +300,18 @@
 </div>
 </div>
 </div>
-<div class="h-[500px] md:h-auto rounded-2xl overflow-hidden bg-surface-container">
-<iframe allowfullscreen="" class="w-full h-full min-h-[400px]" height="100%" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.3346862231306!2d18.78607147687195!3d49.439055659667964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47144100719583bd%3A0x5fa35e5ca84c64eb!2zS296bWV0aWNrw70gc2Fsw7NuIE1T!5e1!3m2!1ssk!2ssk!4v1788027128963!5m2!1ssk!2ssk" style="border:0;" width="100%"></iframe>
-</div>
+<a href="https://maps.app.goo.gl/ai3ECNUekBExYpbX7" 
+   target="_blank" rel="noopener"
+   class="block h-[500px] md:h-auto rounded-2xl overflow-hidden bg-surface-container relative group">
+  <img src="mapa-salon.jpg"
+       alt="Mapa – Kozmetický salón MS, Čadca"
+       class="w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+    <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-primary px-4 py-2 rounded-full font-label-sm uppercase">
+      Otvoriť v Google Maps
+    </span>
+  </div>
+</a>
 </div>
 </section>
 <!-- Footer -->
@@ -325,8 +334,8 @@
 </div>
 </div>
 </footer>
-<!-- cookies--> 
- 
+<!-- COOKIE BANNER -->
+
 <div id="cookie-banner" style="
   position: fixed;
   bottom: 0;
@@ -343,29 +352,74 @@
   justify-content: space-between;
   gap: 12px;
   z-index: 9999;
+  box-sizing: border-box;
 ">
-  <span>
-    Táto stránka používa cookies od vložených služieb (Google Maps, Instagram, Facebook).
-    Viac info v sekcii <a href="cookies.html" style="color:#fff; text-decoration:underline;">Cookies</a>.
+
+  <span style="flex: 1; min-width: 250px;">
+    Táto stránka používa cookies a služby tretích strán, napríklad Google Maps.
+    Viac informácií nájdete v sekcii
+    <a href="cookies.html" style="color:#fff; text-decoration:underline;">
+      Cookies
+    </a>.
   </span>
-  <button onclick="document.getElementById('cookie-banner').style.display='none'; localStorage.setItem('cookiesAccepted','true');" style="
-    background: #fff;
-    color: #222;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    white-space: nowrap;
+
+  <div style="
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
   ">
-    Rozumiem
-  </button>
+
+    <button id="cookie-reject" style="
+      background: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+    ">
+      Nepovoliť
+    </button>
+
+    <button id="cookie-accept" style="
+      background: #fff;
+      color: #222;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+    ">
+      Povoliť
+    </button>
+
+  </div>
 </div>
 
 <script>
-  if (localStorage.getItem('cookiesAccepted') === 'true') {
-    document.getElementById('cookie-banner').style.display = 'none';
+document.addEventListener("DOMContentLoaded", function () {
+
+  const banner = document.getElementById("cookie-banner");
+
+  const savedConsent = localStorage.getItem("cookieConsent");
+
+  if (savedConsent) {
+    banner.style.display = "none";
   }
+
+  document.getElementById("cookie-accept").addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "accepted");
+    banner.style.display = "none";
+  });
+
+  document.getElementById("cookie-reject").addEventListener("click", function () {
+    localStorage.setItem("cookieConsent", "rejected");
+    banner.style.display = "none";
+  });
+
+});
 </script>
 </body>
 </html>
