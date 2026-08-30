@@ -1,0 +1,11 @@
+/* Kozmetický salón MS — vlastné štýly */
+body {
+    background-color: #fcf9f4;
+    color: #1c1c19;
+}
+
+.hairline {
+    height: 1px;
+    background-color: #dac1bf;
+    opacity: 0.5;
+}
