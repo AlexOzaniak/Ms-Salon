@@ -321,9 +321,51 @@
 <div class="flex flex-col gap-4">
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="https://www.instagram.com/kozmeticky_salon_ms/" target="_blank"">Instagram</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="https://www.facebook.com/kozmetickysalonMS/?locale=sk_SK" target="_blank">Facebook</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="Bude Pridane">Ochrana údajov|treba pridat</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="Gdpr.html">Ochrana údajov</a>
 </div>
 </div>
 </footer>
+<!-- cookies--> 
+ 
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 9999;
+">
+  <span>
+    Táto stránka používa cookies od vložených služieb (Google Maps, Instagram, Facebook).
+    Viac info v sekcii <a href="cookies.html" style="color:#fff; text-decoration:underline;">Cookies</a>.
+  </span>
+  <button onclick="document.getElementById('cookie-banner').style.display='none'; localStorage.setItem('cookiesAccepted','true');" style="
+    background: #fff;
+    color: #222;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  ">
+    Rozumiem
+  </button>
+</div>
+
+<script>
+  if (localStorage.getItem('cookiesAccepted') === 'true') {
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+</script>
 </body>
 </html>
