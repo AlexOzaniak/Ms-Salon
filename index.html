@@ -4,15 +4,21 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Kozmetický salón MS</title>
+
+<!-- Frameworks & Icons -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+
+<!-- Google Fonts: Space Grotesk (Basic hrubé nadpisy) + Inter (Čistý text) -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+
+<!-- Local Assets -->
+<link rel="stylesheet" href="styles.css"/>
 <script src="script.js" defer></script>
 
-<!-- Open Graph (Facebook, Instagram, WhatsApp...) -->
+<!-- Open Graph -->
 <link rel="icon" type="image/jpeg" href="LogoMs.jpg">
 <meta property="og:title" content="Kozmetický salón MS">
 <meta property="og:description" content="Odborná starostlivosť o vašu krásu v Čadci – permanentný make-up a prémiové pleťové ošetrenia.">
@@ -30,322 +36,354 @@
 <meta name="twitter:image" content="https://alexozaniak.github.io/Ms-Salon/LogoMs.jpg">
 </head>
 <body class="antialiased scroll-smooth">
+
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-outline-variant/50">
-<div class="flex justify-between items-center w-full px-margin-mobile md:px-section-padding py-6 max-w-container-max mx-auto">
-<a class="font-headline-md text-headline-md text-primary italic" href="#">Kozmetický salón MS</a>
+<nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-outline-variant/40">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-section-padding py-4 md:py-5 max-w-container-max mx-auto">
+<a class="font-headline-md text-2xl md:text-3xl text-primary font-bold tracking-tight" href="#">Kozmetický salón MS</a>
 <div class="hidden md:flex gap-8 items-center">
-<a class="font-body-md text-body-md uppercase tracking-widest text-primary border-b border-primary/40 pb-1 hover:text-primary transition-colors duration-300" href="#domov">Domov</a>
-<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#o-mne">O mne</a>
-<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#sluzby">Služby</a>
-<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#recenzie">Recenzie</a>
-<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#kontakt">Kontakt</a>
+<a class="font-body-md text-xs uppercase tracking-[0.15em] font-bold text-primary border-b-2 border-primary pb-1" href="#domov">Domov</a>
+<a class="font-body-md text-xs uppercase tracking-[0.15em] font-semibold text-on-surface-variant hover:text-primary transition-colors duration-300" href="#o-mne">O mne</a>
+<a class="font-body-md text-xs uppercase tracking-[0.15em] font-semibold text-on-surface-variant hover:text-primary transition-colors duration-300" href="#sluzby">Služby</a>
+<a class="font-body-md text-xs uppercase tracking-[0.15em] font-semibold text-on-surface-variant hover:text-primary transition-colors duration-300" href="#recenzie">Recenzie</a>
+<a class="font-body-md text-xs uppercase tracking-[0.15em] font-semibold text-on-surface-variant hover:text-primary transition-colors duration-300" href="#kontakt">Kontakt</a>
 </div>
 <div class="flex items-center gap-4">
-<a class="hidden md:inline-flex bg-primary-container text-on-primary rounded-full px-6 py-3 font-label-sm text-label-sm uppercase hover:opacity-90 transition-opacity" href="tel:0949120821">Zavolať</a>
-<button class="md:hidden text-primary" id="mobile-menu-btn">
-<span class="material-symbols-outlined">menu</span>
+<a class="hidden md:inline-flex bg-primary text-on-primary rounded-full px-7 py-3 font-label-sm text-xs uppercase tracking-widest hover:bg-primary/90 transition-all shadow-sm font-bold" href="tel:0949120821">Zavolať</a>
+<button class="md:hidden text-primary p-2 focus:outline-none" id="mobile-menu-btn" aria-label="Menu">
+<span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
 </div>
 </nav>
+
 <!-- Mobile Menu Overlay -->
-<div class="fixed inset-0 bg-surface z-[100] hidden flex-col items-center justify-center" id="mobile-menu-overlay">
-<button class="absolute top-6 right-margin-mobile text-primary" id="mobile-menu-close">
-<span class="material-symbols-outlined text-3xl">close</span>
+<div class="fixed inset-0 bg-surface/98 backdrop-blur-2xl z-[100] hidden flex-col items-center justify-center transition-all" id="mobile-menu-overlay">
+<button class="absolute top-6 right-margin-mobile text-primary p-2" id="mobile-menu-close" aria-label="Zatvoriť menu">
+<span class="material-symbols-outlined text-4xl">close</span>
 </button>
-<div class="flex flex-col items-center gap-8 text-center">
-<a class="font-headline-md text-headline-md text-primary mobile-link" href="#domov">Domov</a>
-<a class="font-headline-md text-headline-md text-primary mobile-link" href="#o-mne">O mne</a>
-<a class="font-headline-md text-headline-md text-primary mobile-link" href="#sluzby">Služby</a>
-<a class="font-headline-md text-headline-md text-primary mobile-link" href="#recenzie">Recenzie</a>
-<a class="font-headline-md text-headline-md text-primary mobile-link" href="#kontakt">Kontakt</a>
+<div class="flex flex-col items-center gap-7 text-center">
+<a class="font-headline-md text-3xl text-primary font-bold mobile-link" href="#domov">Domov</a>
+<a class="font-headline-md text-3xl text-primary font-bold mobile-link" href="#o-mne">O mne</a>
+<a class="font-headline-md text-3xl text-primary font-bold mobile-link" href="#sluzby">Služby</a>
+<a class="font-headline-md text-3xl text-primary font-bold mobile-link" href="#recenzie">Recenzie</a>
+<a class="font-headline-md text-3xl text-primary font-bold mobile-link" href="#kontakt">Kontakt</a>
+<a class="mt-4 bg-primary text-on-primary rounded-full px-8 py-4 font-label-sm text-sm uppercase tracking-widest font-bold" href="tel:0949120821">Zavolať teraz</a>
 </div>
 </div>
+
 <!-- Hero -->
-<section class="relative min-h-screen flex items-center pt-24 scroll-mt-[90px]" id="domov">
+<section class="relative min-h-[90vh] md:min-h-screen flex items-center pt-28 pb-16 scroll-mt-[90px]" id="domov">
 <div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-surface/40 z-10"></div>
-<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd6mE9CEBRWuVDbu8F2fCwJUr_HGbQwHNva7TUNhgp1mzQdKepP6ATsAlEfKDuA2q1hvgySLvbSVE_dAB7nsAXDj8mmbt31YIMzCXCeMcwruB9Zv2Qh6Ka205K7yDm6SBuip1COA_cIJel5b7FoL9BU4ox2QEuyEjRZv4PvhlA0DVHMVGteP1t0G4A9kJd-6bdA0g8c-cjArdKTB8hDBiSioxzawSrfuntBUucVOn4Ut-lH1-jqdYfLg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface/90 via-surface/60 to-transparent z-10"></div>
+<img alt="Kozmetický salón MS pozadie" class="w-full h-full object-cover object-center" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80](https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80)"/>
 </div>
 <div class="relative z-10 w-full px-margin-mobile md:px-section-padding max-w-container-max mx-auto flex flex-col md:w-2/3">
-<div class="inline-flex items-center gap-2 text-primary font-label-sm text-label-sm uppercase tracking-widest mb-6">    
-</div>
-<h1 class="font-display-lg text-display-lg text-primary mb-6">Kozmetický salón MS</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
-            Odborná starostlivosť o vašu krásu v Čadci. Špecializujeme sa na permanentný make-up a prémiové pleťové ošetrenia, ktoré podčiarknu vašu prirodzenú eleganciu.
-        </p>
+<span class="inline-block text-primary font-bold text-xs uppercase tracking-[0.2em] mb-3">Exkluzívna starostlivosť v Čadci</span>
+<h1 class="font-display-lg text-4xl sm:text-5xl md:text-6xl text-primary mb-6 font-bold leading-tight">Kozmetický salón MS</h1>
+<p class="font-body-lg text-base sm:text-lg text-on-surface-variant mb-8 max-w-xl leading-relaxed">
+    Odborná starostlivosť o vašu krásu v Čadci. Špecializujeme sa na <strong class="highlight-text">permanentný make-up</strong> a <strong class="highlight-text">prémiové pleťové ošetrenia</strong>, ktoré prirodzene podčiarknu vašu eleganciu.
+</p>
 <div class="flex flex-col sm:flex-row gap-4">
-<a class="inline-flex justify-center bg-primary-container text-on-primary rounded-full px-8 py-4 font-label-sm text-label-sm uppercase hover:opacity-90 transition-opacity" href="tel:0949120821">Zavolať</a>
-<a class="inline-flex justify-center border border-primary text-primary rounded-full px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-primary/5 transition-colors" href="https://www.instagram.com/kozmeticky_salon_ms/" target="_blank">Sledovať na Instagrame</a>
+<a class="inline-flex justify-center items-center bg-primary text-on-primary rounded-full px-8 py-4 font-label-sm text-xs uppercase tracking-widest hover:bg-primary/90 transition-all shadow-md text-center font-bold" href="tel:0949120821">Zavolať & Objednať sa</a>
+<a class="inline-flex justify-center items-center border-2 border-primary text-primary rounded-full px-8 py-4 font-label-sm text-xs uppercase tracking-widest hover:bg-primary/5 transition-colors text-center font-bold" href="https://www.instagram.com/kozmeticky_salon_ms/" target="_blank" rel="noopener">Sledovať na Instagrame</a>
 </div>
 </div>
 </section>
+
 <!-- O mne -->
-<section class="py-section-padding px-margin-mobile md:px-section-padding max-w-container-max mx-auto scroll-mt-[90px]" id="o-mne">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<section class="py-16 md:py-24 px-margin-mobile md:px-section-padding max-w-container-max mx-auto scroll-mt-[90px]" id="o-mne">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-gutter items-center">
 <div class="md:col-span-5 relative">
-<div class="aspect-[3/4] w-full overflow-hidden rounded-xl">
-<img alt="Monika Steinberger" class="w-full h-full object-cover" src="Owner.jpg "/>
+<div class="aspect-[3/4] w-full overflow-hidden rounded-2xl shadow-lg">
+<img alt="Monika Steinberger" class="w-full h-full object-cover" src="Owner.jpg"/>
 </div>
-<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-secondary-container rounded-full -z-10 hidden md:block"></div>
+<div class="absolute -bottom-6 -right-6 w-40 h-40 bg-secondary-container rounded-full -z-10 hidden md:block opacity-60"></div>
 </div>
-<div class="md:col-span-6 md:col-start-7 flex flex-col justify-center">
-    <a href="https://www.instagram.com/ms_monikasteinberger/" target="_blank">
-<h2 class=" text-headline-lg text-primary mb-6">Monika Steinberger</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
-    </a>
-                Vitajte v mojom salóne. Kráse a kozmetike sa venujem profesionálne s dôrazom na individuálny prístup a prirodzené výsledky.
-            </p>
+<div class="md:col-span-7 md:pl-6 flex flex-col justify-center">
+<a href="https://www.instagram.com/ms_monikasteinberger/" target="_blank" rel="noopener" class="group inline-block">
+    <h2 class="font-headline-lg text-3xl md:text-4xl text-primary mb-4 group-hover:opacity-80 transition-opacity font-bold">Monika Steinberger</h2>
+</a>
+<p class="font-body-lg text-base md:text-lg text-on-surface-variant mb-6 leading-relaxed">
+    Vitajte v mojom salóne. Kráse a kozmetike sa venujem profesionálne s dôrazom na <strong class="highlight-text">individuálny prístup</strong> a perfektne vyzerajúce, <strong class="highlight-text">prirodzené výsledky</strong>.
+</p>
 <ul class="space-y-4">
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
-<span class="font-body-md text-body-md text-on-surface">10+ rokov skúseností v oblasti PMU (permanentného make-upu).</span>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-md text-sm md:text-base text-on-surface"><strong class="highlight-text">10+ rokov skúseností</strong> v oblasti PMU (permanentného make-upu).</span>
 </li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
-<span class="font-body-md text-body-md text-on-surface">Pravidelné odborné školenia a neustále vzdelávanie sa v najnovších technikách (napr. najnovšie techniky laminácie obočia).</span>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-md text-sm md:text-base text-on-surface">Pravidelné odborné školenia a najnovšie trendy (napr. moderná laminácia obočia).</span>
 </li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
-<span class="font-body-md text-body-md text-on-surface">Práca výhradne s prémiovými systémami a produktami.</span>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-md text-sm md:text-base text-on-surface">Práca výhradne s <strong class="highlight-text">prémiovými produktami</strong> a bezpečnými systémami.</span>
 </li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
-<span class="font-body-md text-body-md text-on-surface">Akreditovaný tím profesionálov.</span>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-md text-sm md:text-base text-on-surface">Akreditovaný tím skúsených profesionálov.</span>
 </li>
 </ul>
 </div>
 </div>
 </section>
+
 <!-- Služby -->
-<section class="py-section-padding px-margin-mobile md:px-section-padding bg-surface-container-lowest scroll-mt-[90px]" id="sluzby">
+<section class="py-16 md:py-24 px-margin-mobile md:px-section-padding bg-surface-container-lowest scroll-mt-[90px]" id="sluzby">
 <div class="max-w-container-max mx-auto">
-<div class="text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Naše Služby</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Komplexná starostlivosť o vašu krásu pod jednou strechou.</p>
+<div class="text-center mb-12 md:mb-16">
+<h2 class="font-headline-lg text-3xl md:text-4xl text-primary mb-3 font-bold">Naše Služby</h2>
+<p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto">Komplexná a odborná starostlivosť o vašu krásu pod jednou strechou.</p>
 </div>
-<div class="space-y-24">
+
+<div class="space-y-16 md:space-y-24">
 <!-- Group 1 -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-gutter items-center">
 <div class="order-2 md:order-1">
-<h3 class="font-headline-md text-headline-md text-primary mb-6">Permanentný make-up</h3>
+<h3 class="font-headline-md text-2xl md:text-3xl text-primary mb-6 border-b border-outline-variant/40 pb-3 font-bold">Permanentný make-up</h3>
 <div class="space-y-6">
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">PMU obočia</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Technika Dustybrows s individuálnym návrhom tvaru pre prirodzený vzhľad (výdrž 1–3 roky).</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">PMU obočia</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Technika <span class="highlight-text">Dustybrows</span> s individuálnym návrhom tvaru pre prirodzený vzhľad (výdrž <strong class="text-primary font-bold">1–3 roky</strong>).</p>
 </div>
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">PMU pier</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Zjednotenie farby, prirodzené tónovanie a jemné korekcie tvaru.</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">PMU pier</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Zjednotenie farby, jemné tónovanie a korekcia kontúr pre plnejší efekt.</p>
 </div>
 </div>
 </div>
-<div class="order-1 md:order-2 aspect-square rounded-2xl overflow-hidden">
-<img alt="PMU obočia" class="w-full h-full object-cover" src="Salon1.jpg    "/>
+<div class="order-1 md:order-2 aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden shadow-sm interactive-card">
+<img alt="PMU obočia" class="w-full h-full object-cover service-card-img" src="Salon1.jpg"/>
 </div>
 </div>
+
 <!-- Group 2 -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
-<div class="aspect-square rounded-2xl overflow-hidden bg-surface-container">
-<img alt="Obočie a mihalnice" class="w-full h-full object-cover" src="MsObocieAMihalnice.jpg"/>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-gutter items-center">
+<div class="aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden shadow-sm interactive-card">
+<img alt="Obočie a mihalnice" class="w-full h-full object-cover service-card-img" src="MsObocieAMihalnice.jpg"/>
 </div>
 <div>
-<h3 class="font-headline-md text-headline-md text-primary mb-6">Starostlivosť o obočie a mihalnice</h3>
+<h3 class="font-headline-md text-2xl md:text-3xl text-primary mb-6 border-b border-outline-variant/40 pb-3 font-bold">Starostlivosť o obočie a mihalnice</h3>
 <div class="space-y-6">
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Laminácia obočia</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Dlhodobá fixácia chĺpkov do požadovaného tvaru pre plnší vzhľad.</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">Laminácia obočia</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Dlhodobá fixácia chĺpkov do požadovaného tvaru pre upravený a plný vzhľad.</p>
 </div>
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Lash lift</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Prirodzené vytočenie a zvýraznenie vašich vlastných mihalníc.</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">Lash lift</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Prirodzené vytočenie, optické predĺženie a zvýraznenie vlastných mihalníc.</p>
 </div>
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Aplikácia a úprava mihalníc</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Profesionálne predlžovanie a zahusťovanie mihalníc na mieru.</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">Aplikácia a úprava mihalníc</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Profesionálne predlžovanie a zahusťovanie mihalníc šité na mieru.</p>
 </div>
 </div>
 </div>
 </div>
+
 <!-- Group 3 -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-gutter items-center">
 <div class="order-2 md:order-1">
-<h3 class="font-headline-md text-headline-md text-primary mb-6">Pleťové a špeciálne ošetrenia</h3>
+<h3 class="font-headline-md text-2xl md:text-3xl text-primary mb-6 border-b border-outline-variant/40 pb-3 font-bold">Pleťové a špeciálne ošetrenia</h3>
 <div class="space-y-6">
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Carbon Peel / Hollywood Peel</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Revolučné laserové ošetrenie pre okamžité omladenie a rozjasnenie pleti.</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">Carbon Peel / Hollywood Peel</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Revolučné laserové ošetrenie pre okamžité omladenie, stiahnutie pórov a rozjasnenie pleti.</p>
 </div>
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Hĺbkové čistenie</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Dôkladné prečistenie pórov a obnova kožnej bariéry.</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">Hĺbkové čistenie pleti</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Dôkladné vyčistenie pórov, obnova kožnej bariéry a hĺbková regenerácia.</p>
 </div>
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Hydratačné kúry, peelingy a masky</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Intenzívna výživa vrátane ošetrení s vitamínom C pre žiarivý vzhľad.</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">Hydratačné kúry, peelingy & masky</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Intenzívna výživa vrátane sér s <strong class="highlight-text">Vitamínom C</strong> pre žiarivú pleť.</p>
 </div>
 </div>
 </div>
-<div class="order-1 md:order-2 aspect-square rounded-2xl overflow-hidden">
-<img alt="Pleťové ošetrenia" class="w-full h-full object-cover" src="salon2.jpg"/>
+<div class="order-1 md:order-2 aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden shadow-sm interactive-card">
+<img alt="Pleťové ošetrenia" class="w-full h-full object-cover service-card-img" src="salon2.jpg"/>
 </div>
 </div>
+
 <!-- Group 4 -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
-<div class="aspect-square rounded-2xl overflow-hidden bg-surface-container">
-<img alt="Ďalšie služby" class="w-full h-full object-cover" src="MsADalsieSluzby.jpg"/>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-gutter items-center">
+<div class="aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden shadow-sm interactive-card">
+<img alt="Ďalšie služby" class="w-full h-full object-cover service-card-img" src="MsADalsieSluzby.jpg"/>
 </div>
 <div>
-<h3 class="font-headline-md text-headline-md text-primary mb-6">Ďalšie služby</h3>
+<h3 class="font-headline-md text-2xl md:text-3xl text-primary mb-6 border-b border-outline-variant/40 pb-3 font-bold">Ďalšie služby</h3>
 <div class="space-y-6">
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Lymfodrenáž</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Prístrojová masáž na podporu detoxikácie a zmiernenie opuchov.</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">Lymfodrenáž</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Prístrojová masáž na podporu detoxikácie organizmu a zmiernenie opuchov.</p>
 </div>
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Starostlivosť o nechty</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Komplexná manikúra a úprava nechtov pre dokonalý vzhľad rúk.</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">Starostlivosť o nechty</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Komplexná manikúra a profesionálna úprava pre dokonalé ruky.</p>
 </div>
 <div>
-<h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-2">Predaj profesionálnej kozmetiky</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Odborné poradenstvo a predaj produktov na domácu starostlivosť (SPF krémy, spreje).</p>
+<h4 class="font-body-lg text-lg font-bold text-on-surface mb-1">Predaj profesionálnej kozmetiky</h4>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Poradenstvo a predaj produktov na domáce použitie (SPF krémy, výživné séra).</p>
 </div>
 </div>
 </div>
 </div>
+
 </div>
 </div>
 </section>
+
 <!-- Instagram Strip -->
-<section class="py-section-padding overflow-hidden scroll-mt-[90px]" id="instagram">
-<div class="text-center mb-10 px-margin-mobile">
-<a class="inline-flex items-center gap-2 font-headline-md text-headline-md text-primary hover:opacity-80 transition-opacity" href="https://www.instagram.com/kozmeticky_salon_ms/" target="_blank">
-            Instagram @ms_monikasteinberger
-            <span class="material-symbols-outlined">north_east</span>
+<section class="py-16 md:py-24 overflow-hidden scroll-mt-[90px]" id="instagram">
+<div class="text-center mb-8 px-margin-mobile">
+<a class="inline-flex items-center gap-2 font-headline-md text-2xl md:text-3xl text-primary hover:opacity-80 transition-opacity font-bold" href="https://www.instagram.com/kozmeticky_salon_ms/" target="_blank" rel="noopener">
+    <span>Instagram @ms_monikasteinberger</span>
+    <span class="material-symbols-outlined text-xl">north_east</span>
 </a>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-margin-mobile md:px-section-padding max-w-container-max mx-auto">
-<div class="aspect-square overflow-hidden rounded-xl">
-<img alt="Instagram post" class="block w-full h-full object-cover" src="MsSalon1_insta.jpg"/>
 </div>
-<div class="aspect-square overflow-hidden rounded-xl">
-<img alt="Instagram post" class="block w-full h-full object-cover" src="MsSalon2_insta.jpg"/>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 px-margin-mobile md:px-section-padding max-w-container-max mx-auto">
+<div class="aspect-square overflow-hidden rounded-xl shadow-sm interactive-card">
+<img alt="Instagram ukážka" class="w-full h-full object-cover" src="MsSalon1_insta.jpg"/>
 </div>
-<div class="aspect-square overflow-hidden rounded-xl">
-<img alt="Instagram post" class="block w-full h-full object-cover" src="MsSalon3_insta.jpg"/>
+<div class="aspect-square overflow-hidden rounded-xl shadow-sm interactive-card">
+<img alt="Instagram ukážka" class="w-full h-full object-cover" src="MsSalon2_insta.jpg"/>
 </div>
-<div class="aspect-square overflow-hidden rounded-xl">
-<img alt="Instagram post" class="block w-full h-full object-cover" src="MsSalon4_insta.jpg"/>
+<div class="aspect-square overflow-hidden rounded-xl shadow-sm interactive-card">
+<img alt="Instagram ukážka" class="w-full h-full object-cover" src="MsSalon3_insta.jpg"/>
+</div>
+<div class="aspect-square overflow-hidden rounded-xl shadow-sm interactive-card">
+<img alt="Instagram ukážka" class="w-full h-full object-cover" src="MsSalon4_insta.jpg"/>
 </div>
 </div>
 </section>
+
 <!-- Recenzie -->
-<section class="py-section-padding px-margin-mobile md:px-section-padding bg-surface-container scroll-mt-[90px]" id="recenzie">
+<section class="py-16 md:py-24 px-margin-mobile md:px-section-padding bg-surface-container scroll-mt-[90px]" id="recenzie">
 <div class="max-w-container-max mx-auto">
-<div class="text-center mb-16">
-<div class="inline-flex items-center justify-center gap-2 text-primary font-label-sm text-label-sm uppercase tracking-widest mb-4">
-<span class="material-symbols-outlined text-base">verified</span>
+<div class="text-center mb-12">
+<div class="inline-flex items-center justify-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mb-3 bg-surface px-4 py-1.5 rounded-full border border-outline-variant/30 shadow-sm">
+<span class="material-symbols-outlined filled-star text-sm">star</span>
 <span>100 % odporúčanie · 43 recenzií</span>
 </div>
-<h2 class="font-headline-lg text-headline-lg text-primary">Čo hovoria klientky</h2>
+<h2 class="font-headline-lg text-3xl md:text-4xl text-primary font-bold">Čo hovoria klientky</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="bg-surface p-8 rounded-2xl border border-outline-variant/30">
-<div class="flex text-primary mb-4">
-<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+<a href="https://www.facebook.com/kozmetickysalonMS/reviews/?id=100063506775649&sk=reviews&locale=sk_SK" target="_blank" rel="noopener" class="bg-surface p-6 md:p-8 rounded-2xl border border-outline-variant/30 flex flex-col justify-between interactive-card">
+<div>
+<div class="flex mb-4 gap-1">
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
 </div>
-<a href="https://www.facebook.com/kozmetickysalonMS/reviews/?id=100063506775649&sk=reviews&locale=sk_SK" target="_blank">
-<p class="font-body-lg text-body-lg text-on-surface-variant italic mb-6">"Určite odporúčam 😊 mne Monika vykúzlila z pokazeného starého odfláknutého obočka z iného salónu nové, prirodzené a krásne, konečne ráno nemusím nič opravovať a dokreslovať 👏👏 ďakujem 🙏 ❤️"</p>
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">— Michaela B.</p>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant italic mb-6 leading-relaxed">"Určite odporúčam 😊 mne Monika vykúzlila z pokazeného starého odfláknutého obočka z iného salónu nové, prirodzené a krásne, konečne ráno nemusím nič opravovať a dokreslovať 👏👏 ďakujem 🙏 ❤️"</p>
+</div>
+<p class="font-label-sm text-xs uppercase tracking-widest text-primary font-bold">— Michaela B.</p>
 </a>
+
+<a href="https://www.facebook.com/kozmetickysalonMS/reviews/?id=100063506775649&sk=reviews&locale=sk_SK" target="_blank" rel="noopener" class="bg-surface p-6 md:p-8 rounded-2xl border border-outline-variant/30 flex flex-col justify-between interactive-card">
+<div>
+<div class="flex mb-4 gap-1">
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
 </div>
-<div class="bg-surface p-8 rounded-2xl border border-outline-variant/30">
-<div class="flex text-primary mb-4">
-<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant italic mb-6 leading-relaxed">"Najšikovnejšia! Odporúčam všetkými desiatimi ❤️"</p>
 </div>
-<a href="https://www.facebook.com/kozmetickysalonMS/reviews/?id=100063506775649&sk=reviews&locale=sk_SK" target="_blank">
-<p class="font-body-lg text-body-lg text-on-surface-variant italic mb-6">"Najšikovnejšia! Odporúčam všetkými desiatimi ❤️"</p>
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">— Bianka K.</p>
+<p class="font-label-sm text-xs uppercase tracking-widest text-primary font-bold">— Bianka K.</p>
 </a>
+
+<a href="https://www.facebook.com/kozmetickysalonMS/reviews/?id=100063506775649&sk=reviews&locale=sk_SK" target="_blank" rel="noopener" class="bg-surface p-6 md:p-8 rounded-2xl border border-outline-variant/30 flex flex-col justify-between interactive-card">
+<div>
+<div class="flex mb-4 gap-1">
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
+<span class="material-symbols-outlined filled-star text-2xl">star</span>
 </div>
-<div class="bg-surface p-8 rounded-2xl border border-outline-variant/30">
-<div class="flex text-primary mb-4">
-<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant italic mb-6 leading-relaxed">"👍 prístup, komunikácia a kvalitne odvedená práca ⚘"</p>
 </div>
-<a href="https://www.facebook.com/kozmetickysalonMS/reviews/?id=100063506775649&sk=reviews&locale=sk_SK" target="_blank">
-<p class="font-body-lg text-body-lg text-on-surface-variant italic mb-6">"👍prístup, komunikácia a kvalitne odvedená práca ⚘"</p>
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">— Alexandra H.</p>
+<p class="font-label-sm text-xs uppercase tracking-widest text-primary font-bold">— Alexandra H.</p>
 </a>
-</div>
+
 </div>
 </div>
 </section>
+
 <!-- Kontakt -->
-<section class="py-section-padding px-margin-mobile md:px-section-padding max-w-container-max mx-auto scroll-mt-[90px]" id="kontakt">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<section class="py-16 md:py-24 px-margin-mobile md:px-section-padding max-w-container-max mx-auto scroll-mt-[90px]" id="kontakt">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
 <div>
-<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Kontakt</h2>
-<div class="space-y-6 mb-12">
+<h2 class="font-headline-lg text-3xl md:text-4xl text-primary mb-8 font-bold">Kontakt</h2>
+<div class="space-y-6 mb-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
 <div>
-<h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1">Kozmetický salón MS</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Čadca, Slovensko</p>
+<h3 class="font-body-lg text-base font-bold text-on-surface">Kozmetický salón MS</h3>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant">Čadca, Slovensko</p>
 </div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">call</span>
 <div>
-<h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1">Telefón</h3>
-<p class="font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" href="tel:0949120821">0949 120 821</a></p>
+<h3 class="font-body-lg text-base font-bold text-on-surface">Telefón</h3>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant"><a class="hover:text-primary font-semibold transition-colors" href="tel:0949120821">0949 120 821</a></p>
 </div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">photo_camera</span>
 <div>
-<h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1">Instagram</h3>
-<p class="font-body-md text-body-md text-on-surface-variant"><a class="hover:text-primary transition-colors" href="https://www.instagram.com/kozmeticky_salon_ms/" target="_blank">@ms_monikasteinberger</a></p>
+<h3 class="font-body-lg text-base font-bold text-on-surface">Instagram</h3>
+<p class="font-body-md text-sm md:text-base text-on-surface-variant"><a class="hover:text-primary font-semibold transition-colors" href="https://www.instagram.com/kozmeticky_salon_ms/" target="_blank" rel="noopener">@ms_monikasteinberger</a></p>
 </div>
 </div>
 </div>
-<a href="https://maps.app.goo.gl/ye6XvhzGYnHxmTtf9" 
-   target="_blank" rel="noopener"
-   class="block h-[500px] md:h-auto rounded-2xl overflow-hidden bg-surface-container relative group">
-  <img src="mapa-salon.jpg"
-       alt="Mapa – Kozmetický salón MS, Čadca"
-       class="w-full h-full object-cover">
-  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-    <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-primary px-4 py-2 rounded-full font-label-sm uppercase">
+</div>
+<a href="https://maps.app.goo.gl/ye6XvhzGYnHxmTtf9" target="_blank" rel="noopener" class="block h-[320px] md:h-[400px] rounded-2xl overflow-hidden bg-surface-container relative group shadow-sm interactive-card">
+  <img src="mapa-salon.jpg" alt="Mapa – Kozmetický salón MS, Čadca" class="w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+    <span class="bg-white text-primary px-5 py-2.5 rounded-full font-label-sm text-xs uppercase tracking-wider font-bold shadow-md transform group-hover:scale-105 transition-transform">
       Otvoriť v Google Maps
     </span>
   </div>
 </a>
 </div>
 </section>
+
 <!-- Footer -->
-<footer class="bg-surface-container-low w-full py-section-padding border-t border-outline-variant/50">
-<div class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-section-padding max-w-container-max mx-auto gap-gutter">
+<footer class="bg-surface-container-low w-full py-12 border-t border-outline-variant/40">
+<div class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-section-padding max-w-container-max mx-auto gap-8">
 <div>
-<a class="font-headline-md text-headline-md text-primary italic mb-4 block" href="#">Kozmetický salón MS</a>
-<p class="font-body-md text-body-md text-on-surface-variant">© 2026 Kozmetický salón MS. Všetky práva vyhradené.</p>
-
-
-<a href="https://mail.google.com/mail/?view=cm&fs=1&to=alexozaniakk@gmail.com" target="_blank">
-<p class=" font-body-md text-body-mg  text-on-surface">Site Made by Alex Ozaniak < 3</p>
+<a class="font-headline-md text-2xl text-primary font-bold mb-2 block" href="#">Kozmetický salón MS</a>
+<p class="font-body-md text-xs text-on-surface-variant mb-2">© 2026 Kozmetický salón MS. Všetky práva vyhradené.</p>
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=alexozaniakk@gmail.com" target="_blank" rel="noopener" class="text-xs text-on-surface-variant hover:text-primary transition-colors">
+  Site Made by Alex Ozaniak &lt;3
 </a>
 </div>
-
-<div class="flex flex-col gap-4">
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="https://www.instagram.com/kozmeticky_salon_ms/" target="_blank"">Instagram</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="https://www.facebook.com/kozmetickysalonMS/?locale=sk_SK" target="_blank">Facebook</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-opacity" href="Gdpr.html">Ochrana údajov</a>
+<div class="flex gap-6 text-xs uppercase tracking-wider font-bold">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/kozmeticky_salon_ms/" target="_blank" rel="noopener">Instagram</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.facebook.com/kozmetickysalonMS/?locale=sk_SK" target="_blank" rel="noopener">Facebook</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="Gdpr.html">Ochrana údajov</a>
 </div>
 </div>
 </footer>
-<!-- COOKIE BANNER -->
 
+<!-- COOKIE BANNER -->
 <div id="cookie-banner" style="
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #222;
+  background: #1c1c19;
   color: #fff;
   padding: 16px 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -354,47 +392,39 @@
   z-index: 9999;
   box-sizing: border-box;
 ">
-
   <span style="flex: 1; min-width: 250px;">
     Táto stránka používa iba nevyhnutné cookies na uloženie vášho súhlasu.
     Viac informácií nájdete v sekcii
-    <a href="cookies.html" style="color:#fff; text-decoration:underline;">
-      Cookies
-    </a>.
+    <a href="cookies.html" style="color:#fff; text-decoration:underline;">Cookies</a>.
   </span>
-
   <button id="cookie-accept" style="
     background: #fff;
-    color: #222;
+    color: #1c1c19;
     border: none;
     padding: 8px 18px;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 700;
     cursor: pointer;
-    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   ">
     Rozumiem
   </button>
-
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-
   const banner = document.getElementById("cookie-banner");
   const savedConsent = localStorage.getItem("cookieConsent");
-
   if (savedConsent) {
     banner.style.display = "none";
   }
-
-  document.getElementById("cookie-accept").addEventListener("click", function () {
+  document.getElementById("cookie-accept")?.addEventListener("click", function () {
     localStorage.setItem("cookieConsent", "accepted");
     banner.style.display = "none";
   });
-
 });
 </script>
-
 </body>
 </html>

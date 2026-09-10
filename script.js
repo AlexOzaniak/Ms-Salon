@@ -1,10 +1,8 @@
-// Kozmetický salón MS — Tailwind konfigurácia + logika mobilného menu
-
 tailwind.config = {
     darkMode: "class",
     theme: {
         extend: {
-            "colors": {
+            colors: {
                 "on-secondary-fixed": "#231917",
                 "surface-bright": "#fcf9f4",
                 "surface-container-high": "#ebe8e3",
@@ -53,36 +51,27 @@ tailwind.config = {
                 "on-primary-container": "#cc726d",
                 "surface-variant": "#e5e2dd"
             },
-            "borderRadius": {
-                "DEFAULT": "0.25rem",
-                "lg": "0.5rem",
-                "xl": "0.75rem",
+            borderRadius: {
+                "DEFAULT": "0.375rem",
+                "lg": "0.75rem",
+                "xl": "1rem",
+                "2xl": "1.5rem",
                 "full": "9999px"
             },
-            "spacing": {
+            spacing: {
                 "margin-mobile": "20px",
                 "container-max": "1200px",
                 "unit": "8px",
-                "section-padding": "120px",
+                "section-padding": "90px",
                 "gutter": "32px"
             },
-            "fontFamily": {
-                "body-lg": ["Inter"],
-                "headline-lg-mobile": ["Playfair Display"],
-                "body-md": ["Inter"],
-                "headline-md": ["Playfair Display"],
-                "display-lg": ["Playfair Display"],
-                "label-sm": ["Inter"],
-                "headline-lg": ["Playfair Display"]
-            },
-            "fontSize": {
-                "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
-                "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
-                "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                "headline-md": ["28px", { "lineHeight": "1.3", "fontWeight": "500" }],
-                "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
-                "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
-                "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "500" }]
+           fontFamily: {
+                "body-lg": ["Inter", "sans-serif"],
+                "body-md": ["Inter", "sans-serif"],
+                "headline-lg": ["Space Grotesk", "sans-serif"],
+                "headline-md": ["Space Grotesk", "sans-serif"],
+                "display-lg": ["Space Grotesk", "sans-serif"],
+                "label-sm": ["Inter", "sans-serif"]
             }
         }
     }
@@ -94,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn?.addEventListener('click', () => {
         mobileMenuOverlay.classList.remove('hidden');
         mobileMenuOverlay.classList.add('flex');
         document.body.style.overflow = 'hidden';
@@ -106,9 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     };
 
-    mobileMenuClose.addEventListener('click', closeMenu);
-
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
+    mobileMenuClose?.addEventListener('click', closeMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
 });
